@@ -411,3 +411,8 @@ svg
   .text((d) => d[0] + ", " + d[1])
   .attr("x", (d, i) => d[0] + 5)
   .attr("y", (d, i) => h - d[1]);
+
+//Create a Linear Scale with D3
+const scale = d3.scaleLinear(); // Create the scale here
+const output = scale(50); // Call the scale with an argument here
+d3.select("body").append("h2").text(output);
