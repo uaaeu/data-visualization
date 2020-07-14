@@ -416,3 +416,10 @@ svg
 const scale = d3.scaleLinear(); // Create the scale here
 const output = scale(50); // Call the scale with an argument here
 d3.select("body").append("h2").text(output);
+
+//Set a Domain and a Range on a Scale
+const scale = d3.scaleLinear();
+scale.domain([250, 500]).range([10, 150]);
+
+const output = scale(50);
+d3.select("body").append("h2").text(output);
