@@ -69,6 +69,8 @@ document.addEventListener("DOMContentLoaded", () => {
     req.onload = () => {
       const json = JSON.parse(req.responseText);
       let html = "";
+      //Pre-filter JSON to Get the Data You Need
+      json = json.filter(val => (val.id !== 1));
       json.forEach((val) => {
         html += "<div class = 'cat'>";
         html +=
@@ -80,3 +82,4 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   };
 });
+
