@@ -32,3 +32,30 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   };
 });
+
+//Convert JSON Data to HTML
+document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("getMessage").onclick = function () {
+    const req = new XMLHttpRequest();
+    req.open("GET", "/json/cats.json", true);
+    req.send();
+    req.onload = function () {
+      const json = JSON.parse(req.responseText);
+      let html = "";
+      json.forEach((val) => {
+        // Adding each object keys
+        var keys = Object.keys(val);
+        // Generating new html
+        html += "<div class = 'cat'>";
+        // Adding the custom html to each key
+        keys.map((key) => {
+          html += "<strong>" + key + "</strong>: " + val[key] + "<br>";
+        });
+
+        html += "</div><br>";
+      });
+
+      document.getElementsByClassName("message")[0].innerHTML = html;
+    };
+  };
+});
